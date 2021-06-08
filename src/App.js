@@ -1,11 +1,12 @@
 import React from 'react'
-import Navbar from "./Components/Navbar";
+
+import Navbar from "./components/Navbar";
 import {Route} from "react-router-dom";
-import Home from "./Components/Home";
-import Aboutus from "./Components/Aboutus";
-import Login from "./Components/Login";
-import Footer from "./Components/Footer";
-import Register from "./Components/Register";
+import Home from "./components/Home";
+import Aboutus from "./components/Aboutus";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Work from "./components/Work";
 import "./App.css";
 const App = () => {
   return (
@@ -25,6 +26,9 @@ const App = () => {
     </Route>
     <Route path="/Register">
       <Register/>
+    </Route>
+    <Route path="/Work">
+      <Work/>
     </Route>
     
     </>

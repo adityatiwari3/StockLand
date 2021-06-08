@@ -2,10 +2,12 @@ import React from 'react'
 
 function Register() {
     return (
-        <div>
-            <h1>welcome to Register</h1>
-        </div>
-    )
+        <>
+            <h1> welcome to Register</h1>  
+            
+        </>
+        )
+    
 }
 
 export default Register
