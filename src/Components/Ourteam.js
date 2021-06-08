@@ -1,6 +1,7 @@
 import React from 'react'
 import image from "../Images/Panda-01.png";
-function Ourteam() {
+import "../Styles/Ourteam.css";
+function OurTeam() {
     return (
         <>
             <div className="row  text-center">
@@ -65,4 +66,4 @@ function Ourteam() {
     )
 }
 
-export default Ourteam
+export default OurTeam

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import "../Styles/Feedback.css";
 function Feedback() {
     
     const input = () =>{

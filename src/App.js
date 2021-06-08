@@ -1,13 +1,13 @@
 import React from 'react'
-
 import Navbar from "./components/Navbar";
 import {Route} from "react-router-dom";
 import Home from "./components/Home";
 import Aboutus from "./components/Aboutus";
 import Login from "./components/Login";
-import Register from "./components/Register";
+import Register from "./components/Registration";
 import Work from "./components/Work";
-import "./App.css";
+import MyStocks from "./components/MyStocks";
+import "./Styles/App.css";
 const App = () => {
   return (
     <>
@@ -30,7 +30,9 @@ const App = () => {
     <Route path="/Work">
       <Work/>
     </Route>
-    
+    <Route path="/MyStock">
+    <MyStocks/>
+    </Route>
     </>
   )
 }

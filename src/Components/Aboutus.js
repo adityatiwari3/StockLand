@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
-import Ourteam from "./Ourteam";
+import Ourteam from "./OurTeam";
 import Feedback from "./Feedback";
 import Location from "./Location";
 import Footer from "./Footer";
+import "../Styles/Aboutus.css";
 
 function Aboutus() {
     return (
@@ -54,7 +55,7 @@ function Aboutus() {
                         </div>
                     </div>
                 </div>
-                <Ourteam/>
+                <OurTeam/>
                 <Location/>
                 <div className="row text-center pt-3 info-num mt-4">
                     <div className="col-12 col-lg-3 ">

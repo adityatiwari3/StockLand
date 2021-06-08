@@ -1,0 +1,16 @@
+#our-team{
+    color: #022249;
+    font-size: 50px;
+    padding: 20px;
+  }
+  .intro{
+    background-color: #C6EFF5;
+    width: 220px;
+    box-shadow: 0px 0px 10px 0px #888888;
+    border-radius: 10px;
+    margin: auto;
+  }
+  .self-img{
+    width: 180px;
+    height: 180px;
+  }

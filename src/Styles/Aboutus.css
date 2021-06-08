@@ -1,0 +1,47 @@
+.about_bread{
+  
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    border-radius: 4px;
+    background-color: #C3E4F5;
+    font-size: 20px;
+  }
+  .about_tag{
+    color: #276783;
+  }
+  .fact{
+    background-color: #E2F2F0;
+    box-shadow: 0px 0px 10px 0px #888888;
+  }
+  .fact-header{
+    background-color: #022249;
+  }
+  .qutes{
+    background-color: #C3E4F5;
+    box-shadow: 0px 0px 10px 0px #888888;
+  }
+  .info-num{
+    background-color: #C3E4F5;
+    box-shadow: 0px 0px 10px 0px #888888;
+  }
+  .info-detail{
+    box-shadow: 0px 0px 20px 2px #888888;
+  }
+  #client{
+    background-color: #022249;
+    color: white;
+  }
+  #downloads{
+    background-color: #0e3a18;
+    color: white;
+  
+  }
+  #visited{
+    background-color: #C24915;
+    color: white;
+  }
+  #contribution{
+    background-color: #266783;
+    color: white;
+  }
