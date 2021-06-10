@@ -23,10 +23,10 @@ function Navbar() {
               <NavLink className="nav-link" to="/Aboutus"><span className="fa fa-info fa-lg"></span> Aboutus</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/Login"><span className="fa fa-sign-in fa-lg"></span> Login</NavLink>
+              <NavLink className="nav-link"  to="/Login"><span className="fa fa-sign-in fa-lg"></span> Login</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/Register"><span className="fa fa-user-plus fa-lg"></span> Register</NavLink>
+              <NavLink className="nav-link" data-toggle="modal" data-target="#" to="/Registration"><span className="fa fa-user-plus fa-lg"></span> Register</NavLink>
             </li>
 
           </ul>

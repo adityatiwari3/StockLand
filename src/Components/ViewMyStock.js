@@ -1,10 +1,12 @@
-import React from 'react';
-const View= (props)=>{
+import React, {useContext} from 'react';
+// import {CName} from "./MyStocks";
+const ViewMyStock= (props)=>{
+    // const name = useContext(CName);
     return(
-        <div className="stockView">
-            <span className="Company_Name">{props.CName}</span>
+        <div className="stockView d-flex  justify-content-between">
+            <span className="Company_Name">dhjkshg</span>
             <button className="Checkibtn">Check</button>
         </div>
     );
 }
-export default View;
+export default ViewMyStock;

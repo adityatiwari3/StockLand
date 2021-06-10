@@ -1,6 +1,6 @@
 import React from 'react'
 import image from "../Images/Panda-01.png";
-import "../Styles/Ourteam.css";
+import "../Styles/OurTeam.css";
 function OurTeam() {
     return (
         <>

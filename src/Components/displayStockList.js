@@ -1,21 +1,23 @@
 import React from 'react'
-import View from './ViewMyStock'
-const Display = () =>{
+import ViewMyStock from './ViewMyStock'
+const DisplayStockList = () =>{
+
+    // console.log("keiiei")
     return(
         <div className="Stocks">
-            <span className="PageSubTitle">Your Listed Stocks</span>
+            <span><h2 className="PageSubTitle">Your Listed Stocks</h2></span>
             <hr></hr>
             <div id="AddStocksList">
-                    <div className="ListHeaders">
-                        <div className='PageSubSubTitle'><u>Stock Name</u></div>
+                    <div className="ListHeaders d-flex justify-content-around">
+                        <div className=' d-flex  justify-content-between'><u><h4 className='PageSubSubTitle'>Stock Name</h4></u></div>
                      
-                        <div className='PageSubSubTitle'><u>Current Status</u></div>
+                        <div className=' d-flex  justify-content-between'><u><h4 className='PageSubSubTitle'>Current Status</h4></u></div>
                     </div>
-                    <View CName='Company'/>
-                    <View CName='Company'/>
-                    <View CName='Company' />
+                    <ViewMyStock name="dkddkdk"/>
+                    <ViewMyStock name="dkddkdk"/>
+                    <ViewMyStock name="dkddkdk"/>
             </div>
         </div>
     );
 }
-export default Display;
+export default DisplayStockList;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
-import Ourteam from "./OurTeam";
+import OurTeam from "./OurTeam";
 import Feedback from "./Feedback";
 import Location from "./Location";
 import Footer from "./Footer";
