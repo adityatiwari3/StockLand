@@ -12,17 +12,15 @@ App.use(express.json());
 
 App.use(require('./router/auth'));
 
-const middleware = (req,res,next) =>{
-    console.log('welcome to middleware');
-    next();
-}
+// const middleware = (req,res,next) =>{
+//     console.log('welcome to middleware');
+//     next();
+// }
 
 App.get("/",(req,res)=>{
     res.send("welcome to home page");
 })
-App.get("/Aboutus",middleware,(req,res)=>{
-    res.send("welcome to Aboutus page");
-})
+
 App.get("/Work",middleware,(req,res)=>{
     res.send("welcome to Work page");
 })

@@ -71,5 +71,8 @@ router.post("/Login", async (req, res) => {
     }
 });
 
+App.get("/Aboutus",check,(req,res)=>{
+    res.send("welcome to Aboutus page");
+})
 
 module.exports = router;
