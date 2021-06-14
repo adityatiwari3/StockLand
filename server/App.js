@@ -17,19 +17,9 @@ App.use(require('./router/auth'));
 //     next();
 // }
 
-App.get("/",(req,res)=>{
-    res.send("welcome to home page");
-})
 
-App.get("/Work",middleware,(req,res)=>{
-    res.send("welcome to Work page");
-})
-App.get("/MyStocks",middleware,(req,res)=>{
-    res.send("welcome to mystocks page");
-})
-App.get("/Profile",middleware,(req,res)=>{
-    res.send("welcome to profile page");
-})
+
+
 
 // App.get("/Register",middleware,(req,res)=>{
 //     res.send("welcome to Register page");

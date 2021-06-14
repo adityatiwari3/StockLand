@@ -14,10 +14,13 @@ const Work = () =>{
             console.log(Search);
             fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${Search}&outputsize=compact&apikey=R6DG5NS8ZUUQXIV7`)
                 .then(response => {
+                    //console.log(response);
                     return response.json();
                 })
                 .then(data => {
+                    console.log(data);
                     for (const key in data['Time Series (Daily)']) {
+                        //console.log(key)
                         KeyValues.push(key);
                         DataValues.push(data['Time Series (Daily)'][key]['1. open']);
                     }

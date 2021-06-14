@@ -1,17 +1,21 @@
-import React from 'react'
+import React,{createContext,useReducer} from 'react';
 import Navbar from "./components/Navbar";
-import {Route} from "react-router-dom";
+import {Route,Switch} from "react-router-dom";
 import Home from "./components/Home";
 import Aboutus from "./components/Aboutus";
 import Login from "./components/Login";
 import Registration from "./components/Registration";
 import Work from "./components/Work";
 import MyStocks from "./components/MyStocks";
+import Logout from "./components/Logout";
+import Text from "./text";
+import {reducer,initialState} from "../src/reduser/useReducer";
 import "./Styles/App.css";
-const App = () => {
-  return (
-    <>
-    <Navbar/>
+
+export const user= createContext();
+const Render = () =>{
+  return(
+    <Switch>
     <Route exact path="/">
       <Home/>
     </Route>
@@ -33,6 +37,26 @@ const App = () => {
     <Route path="/MyStock">
       <MyStocks/>
     </Route>
+    <Route path="/Logout">
+      <Logout/>
+    </Route>
+    <Route path="/text">
+      <Text/>
+    </Route>
+    </Switch>
+  ) 
+}
+
+const App = () => {
+
+const [state, dispatch] = useReducer(reducer, initialState)
+
+  return (
+    <>
+    <user.Provider value={{state,dispatch}}>
+    <Navbar/>
+    <Render/>
+    </user.Provider>
     
     </>
   )

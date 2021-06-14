@@ -6,10 +6,26 @@ const check = async (req,res,next) =>{
 
     try{
 
-        const token = req.cookies.jwtoken;
+      
+        console.log("hiii");
+        let token = req.headers.cookie;
+        console.log(token)
+        console.log("cheking 2")
+        token = token.substring(8,token.length);
+        console.log(token)
+      
         const veriyfytoken = jwt.verify(token,process.env.SECRET_KEY);
-        // const rootdat = await Data.findOne(_id:veriyfytoken._id,"Tokens.token":token)
+        console.log(veriyfytoken)
+        console.log("cheking 3")
 
+        const rootdata = await Data.findOne({_id:veriyfytoken._id,"Tokens.token":token});
+        
+        if(!rootdata){ throw new Error("user not find")}
+
+        req.token =token;
+        req.rootdata=rootdata;
+        req.userId=rootdata._id;
+        next();
     }catch(err) {
         res.status(401).send("unathorised");
         console.log(err);

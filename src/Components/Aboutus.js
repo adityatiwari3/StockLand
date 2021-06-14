@@ -1,12 +1,60 @@
-import React from 'react'
-import { NavLink } from "react-router-dom";
+import React,{useEffect,useContext, useState} from 'react'
+import { NavLink, useHistory} from "react-router-dom";
 import OurTeam from "./OurTeam";
 import Feedback from "./Feedback";
 import Location from "./Location";
 import Footer from "./Footer";
+import {user} from "../App";
 import "../Styles/Aboutus.css";
-
 function Aboutus() {
+
+    const {state,dispatch} = useContext(user)
+
+    const history = useHistory();
+    const [Email,setEmail] = useState();
+    const [Phone,setPhone] = useState();
+    const checking = async () =>{
+        try{
+            // console.log("cheking 1")
+            const res = await fetch('/About',{
+                method:"GET",
+                headers:{
+                    Accept:"application/json",
+                    "Content-Type":"application/json"
+                },
+                credentials:"include"
+            })
+            
+            // console.log("cheking 2")
+            // console.log(res.status)
+
+            // const data = 0;
+            const data = await res.json();
+            setEmail(data.Email)
+            setPhone(data.Phone)
+            // console.log(data);
+            // console.log("cheking 3")
+            if(!res.status === 200)
+            {
+                // console.log("cheking 4")
+                // history.push("/Login");
+                throw new Error(res.error);
+            }
+            // console.log("cheking 5")
+            dispatch({type:"USER",payload:true})
+        }catch(err) {
+            // console.log(err);
+            dispatch({type:"USER",payload:false})
+            //history.push("/Login");
+            // console.log("cheking 6")
+        }
+    }
+    //console.log(data)
+
+    useEffect(() => {
+        checking();
+    }, [])
+
     return (
         <>
             <div className="container">
@@ -83,7 +131,7 @@ function Aboutus() {
                         </div>
                     </div>
                 </div>
-                <Feedback/>   
+                <Feedback email={Email} phone={Phone}/>   
             </div>
             <Footer/>
         </>

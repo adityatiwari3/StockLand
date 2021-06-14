@@ -1,14 +1,15 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2'
 
-const Chart = ({Dates,Data}) => {
+const Chart = ({ Dates, Data }) => {
+    console.log("i am here")
     return (
-
-        <div className="row">
+        <>
+            <div className="row">
                 <hr className='hrB col-12' />
-                <div className="Chart col-5">
+                <div className="col-12">
                     <Line
-                        className="Graph"
+                        //className="Graph"
                         data={{
                             labels: Dates,
                             datasets: [{
@@ -16,7 +17,7 @@ const Chart = ({Dates,Data}) => {
                                 data: Data,
                                 backgroundColor: 'rgb(0,255,0)',
                                 borderColor: ['black'],
-                                borderWidth: 2,
+                                borderWidth: 0,
                                 fill: true
                             }]
                         }}
@@ -26,12 +27,12 @@ const Chart = ({Dates,Data}) => {
                         height={500}
                         width={1000}
 
-                    // options={{maintainAspectRatio:false}}
+                     options={{maintainAspectRatio:false}}
                     />
                 </div>
             </div>
-            
-     
+
+        </>
     );
 }
 export default Chart;
