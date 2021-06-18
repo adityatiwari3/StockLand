@@ -1,11 +1,13 @@
 import React,{useEffect,useContext} from 'react'
 import {useHistory} from "react-router-dom";
-import {user} from "../App";
+import {users} from "../App";
+import img from "../Images/contact.png";
+import Comments from './Comments';
 import Footer from "./Footer";
 function Home() {
 
 
-    const {state,dispatch} = useContext(user)
+    const {state,dispatch} = useContext(users)
 
 
     const history = useHistory();
@@ -53,8 +55,18 @@ function Home() {
 
     return (
         <>
-            <h1>Lorem ipsum dolor, sit amet consectetur lorw adipisicing elit. Quis id eaque nulla odit. Quia consectetur consequatur autem aliquam qui, non ab, ex delectus saepe voluptatibus molestiae nihil necessitatibus, dolore beatae! welcome to Home</h1>
-            <Footer/>
+{/*        
+        <h1>Lorem ipsum dolor, sit amet consectetur lorw adipisicing elit. Quis id eaque nulla odit. Quia consectetur consequatur autem aliquam qui, non ab, ex delectus saepe voluptatibus molestiae nihil necessitatibus, dolore beatae! welcome to Home</h1>
+        <h1>Lorem ipsum dolor, sit amet consectetur lorw adipisicing elit. Quis id eaque nulla odit. Quia consectetur consequatur autem aliquam qui, non ab, ex delectus saepe voluptatibus molestiae nihil necessitatibus, dolore beatae! welcome to Home</h1> */}
+        <Comments/>
+        <div className="row mt-5">
+            <img src={img} alt="" />
+        </div>
+        <div className="row mt-5">
+
+        </div>  
+        <Footer/>
+            
         </>
     )
 }

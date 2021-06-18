@@ -160,5 +160,46 @@ router.get("/MyStocks", check, (req, res) => {
 router.get("/Profile", check, (req, res) => {
     res.send(req.rootdata);
 })
+router.get('/stocksData', () => {
+    console.log('You are in stockdata')
+});
 
+router.post("/:User/stocksData", async (req, res) => {
+    let Email = req.params.User;
+    //console.log(Email);
+    const { stockName, stockPrice } = req.body;
+    try {
+        let user = await Data.findOne({ Email: Email });
+        if(user)
+        {
+
+            user.MyStocks.push({
+                stockName,
+                stockPrice
+            });
+            await user.save();
+        }
+        //console.log(user);
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+router.post('/:User/deleteStock/:ind',async (req,res) => {
+    const Email=req.params.User;
+    const ind=req.params.ind;
+    let user= await Data.findOne({Email:Email});
+    console.log(user);
+    user.MyStocks.splice(ind,1);
+
+    await user.save();
+})
+router.get('/:User/stocksList',async (req,res) => {
+    const Email=req.params.User;
+    let user= await Data.findOne({ Email: Email });
+    res.send(user.MyStocks);
+    console.log("hi welcome to stocklist ")
+    console.log(Email);
+    console.log(user);
+})
 module.exports = router;

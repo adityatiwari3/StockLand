@@ -1,7 +1,16 @@
 const jwt =require('jsonwebtoken');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-
+const stockdata= new mongoose.Schema({
+    stockName :{
+        type : String,
+        required: true
+    },
+    stockPrice : {
+        type: Number,
+        required: true
+    }
+})
 const appdata=new mongoose.Schema({
     Name: {
         type: String,
@@ -27,6 +36,7 @@ const appdata=new mongoose.Schema({
         type: String,
         required:true
     },
+    MyStocks:[stockdata],
     date:{
         type: Date,
         default:Date.Now

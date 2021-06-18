@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import GoogleLogin from 'react-google-login'
 import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
-import { user } from "../App";
+import { users } from "../App";
 import "../Styles/Login.css";
 
 
@@ -10,7 +10,7 @@ import "../Styles/Login.css";
 
 const Login = () => {
 
-    const { state, dispatch } = useContext(user)
+    const { state, dispatch } = useContext(users)
 
     const history = useHistory();
     const [Email, setEmail] = useState();

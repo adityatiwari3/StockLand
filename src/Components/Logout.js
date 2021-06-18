@@ -1,9 +1,9 @@
 import React, { useEffect,useContext} from 'react'
 import {useHistory} from "react-router-dom";
-import {user} from "../App";
+import {users} from "../App";
 function Logout() {
 
-    const {state,dispatch} = useContext(user)
+    const {state,dispatch} = useContext(users)
     const history = useHistory();
 
     useEffect(()=>{

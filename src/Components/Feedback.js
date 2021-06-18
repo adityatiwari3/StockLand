@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
-import { user } from "../App";
+import img from "../Images/contact.png";
+import { users } from "../App";
 import "../Styles/Feedback.css";
 function Feedback(props) {
 
@@ -13,7 +14,7 @@ function Feedback(props) {
         Meassage: ""
     })
     const history = useHistory();
-    const { state, dispatch } = useContext(user)
+    const { state, dispatch } = useContext(users)
     //const [Ccode,setCcode] = useState();
     // const [Phone,setPhone] = useState();
 
@@ -78,7 +79,7 @@ function Feedback(props) {
                 <div className="col-12">
                     <h1 id="feedback-section">Send Us Your Feedback</h1>
                 </div>
-                <div className="col-12 col-lg-8 offset-sm-1">
+                <div className="col-12 col-lg-7 offset-lg-1">
                     <form method="POST">
                         <div className="row form-group  mt-3">
                             <label for="mobnum" className="col-12 col-md-3 col-form-label"><h6>Contact No.</h6></label>
@@ -148,6 +149,11 @@ function Feedback(props) {
                             </div>
                         </div>
                     </form>
+                </div>
+                <div className="col-12 col-lg-4 mt-5">
+                    <div className="">
+                        <img src={img} alt="" className="contact_img"/>
+                    </div>
                 </div>
             </div>
             <div className="row mt-5"></div>

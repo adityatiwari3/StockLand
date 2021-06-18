@@ -12,7 +12,7 @@ import Text from "./text";
 import {reducer,initialState} from "../src/reduser/useReducer";
 import "./Styles/App.css";
 
-export const user= createContext();
+export const users= createContext();
 const Render = () =>{
   return(
     <Switch>
@@ -53,10 +53,10 @@ const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
     <>
-    <user.Provider value={{state,dispatch}}>
+    <users.Provider value={{state,dispatch}}>
     <Navbar/>
     <Render/>
-    </user.Provider>
+    </users.Provider>
     
     </>
   )

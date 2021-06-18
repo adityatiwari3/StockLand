@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import image from "../Images/logo_brand.png";
-import { user } from "../App";
+import img from "../Images/increase_logo.png";
+import { users } from "../App";
 import "../Styles/Navbar.css";
 function Navbar() {
 
-  const { state, dispatch } = useContext(user)
+  const { state, dispatch } = useContext(users)
 
   const RenderMenu = () => {
     if (!state) {
@@ -39,8 +40,19 @@ function Navbar() {
             <NavLink className="nav-link" to="/Work"><span className="fa fa-briefcase fa-lg"></span> Work</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" data-toggle="modal" data-target="#" to="/Logout"><span className="fa fa-user-plus fa-lg"></span> Logout</NavLink>
+            <div className="dropdown  mt-2">
+              <a className="dropdown-toggle" id="dropdownMenuOffse" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                <img src={img} alt="" className="rounded-circle" loading="lazy" style={{ height: 29 }} />
+              </a>
+              <div className="dropdown-menu text-center dropdown-menu-right" aria-labelledby="dropdownMenuOffse">
+                <NavLink className="nav-link" data-toggle="modal" data-target="#" to="/Profile"><span className="fa fa-user fa-lg">  </span>  Profile</NavLink>
+                <NavLink className="nav-link" data-toggle="modal" data-target="#" to="/MyStock"><span className="fa fa-book fa-lg"></span>  MyStocks</NavLink>
+                <hr />
+                <NavLink className="nav-link logout_link" data-toggle="modal" data-target="#" to="/Logout" ><span className="fa fa-sign-out fa-lg"></span>  Logout</NavLink>
+              </div>
+            </div>
           </li>
+          
         </>
       )
     }

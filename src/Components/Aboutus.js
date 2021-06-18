@@ -4,11 +4,11 @@ import OurTeam from "./OurTeam";
 import Feedback from "./Feedback";
 import Location from "./Location";
 import Footer from "./Footer";
-import {user} from "../App";
+import {users} from "../App";
 import "../Styles/Aboutus.css";
 function Aboutus() {
 
-    const {state,dispatch} = useContext(user)
+    const {state,dispatch} = useContext(users)
 
     const history = useHistory();
     const [Email,setEmail] = useState();

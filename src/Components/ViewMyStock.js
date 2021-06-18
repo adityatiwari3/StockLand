@@ -1,49 +1,41 @@
-import React, {useContext,useState} from 'react';
-import Chart from "./Chart";
-// import {CName} from "./MyStocks";
-const ViewMyStock= (props)=>{
-    // const name = useContext(CName);
+import React,{useEffect} from 'react';
 
-    // const [Dates,setDates] =useState([]);
-    // const [Data,setData]=useState([]);
-
-    
-    // const setChart = () =>{
-    //     const KeyValues = [];
-    //     const DataValues = [];
-    //     const CallApi = () => {
-    //         //console.log(Search);
-    //         fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${props.CName}&outputsize=compact&apikey=R6DG5NS8ZUUQXIV7`)
-    //         .then(response => {
-    //             return response.json();
-    //         })
-    //         .then(data => {
-    //             for (const key in data['Time Series (Daily)']) {
-    //                 KeyValues.push(key);
-    //                 DataValues.push(data['Time Series (Daily)'][key]['1. open']);
-    //             }
-    //             setDates(KeyValues);
-    //             setData(DataValues);
-    //         });
-    //     }
-    //     CallApi();
-    //      console.log(Data)
-    //      console.log(Dates)
-        
-    // };
-    
-    // const showChart= () =>{
-    //     console.log(Data)
-    //     console.log(Dates)
-    //     setChart();
-    //     <Chart Dates={Dates} Data={Data}/>
-    // }
-
-    return(
-        <div className="stockView d-flex  justify-content-between">
-            <span className="Company_Name">{props.CName}</span>
-            <button className="btn btn-primary" >Check</button>
-        </div>
+const ViewMyStock = ({ CName, User, ind,FindData}) => {
+   
+    const DeleteStock = () => {
+        const ans = window.confirm("Are you sure you want to delete?");
+        console.log(User);
+        console.log(ind);
+        if (ans) {
+            fetch(`/${User}/deleteStock/${ind}`,{
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                 })
+            }).then((res)=> res.text())
+            .then(data =>console.log(data));
+            window. location. reload();
+        }
+    }
+    const callData= (event) => {
+        event.preventDefault();
+        FindData(CName);
+    }
+    return (
+        <>
+            <div className="stockView row">
+                <span className="Company_Name col-md-7 col-6"><h5>{CName}</h5></span>
+                <div className="col-md-5  col-6 d-flex justify-content-around">
+                    <button className="Checkibtn" onClick={callData}>Check</button>
+                    <button class="btn fa fa-trash" aria-hidden="true" onClick={DeleteStock}></button>
+                </div>
+            </div>
+            {/* <div>
+                {RenderChart}
+            </div> */}
+        </>
     );
 }
 export default ViewMyStock;
