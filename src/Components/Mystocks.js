@@ -3,7 +3,7 @@ import AddStock from './AddStock'
 import Footer from "./Footer";
 import { users } from "../App";
 import {useHistory} from "react-router-dom";
-import Chart from "./Chart";
+import NewChart from "./NewChart";
 import DisplayStockList from './DisplayStockList'
 import '../Styles/MyStocks.css';
 
@@ -52,6 +52,7 @@ const MyStocks = ({ User }) => {
         const data = await res.json();
         console.log(data);
         setUsrStData(data);
+        window.location.reload()
         //console.log(data);
     }
     const [DatesO, setDatesO] = useState([]);
@@ -59,13 +60,15 @@ const MyStocks = ({ User }) => {
     const [DataC,setDataC]=useState([]);
     const [DataH,setDataH]=useState([]);
     const [DataL,setDataL]=useState([]);
+    const [buyPrice,setBuyPrice] =useState([]);
 
-    const TrigerEvent = (Search) => {
+    const TrigerEvent = (Search,BPrice) => {
         const KeyValuesO = [];
         const DataValuesO = [];
         const DataValuesC=[];
         const DataValuesH=[];
         const DataValuesL=[];
+        const BuyPrice =[];
         const CallApi = () => {
             console.log(Search);
             fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${Search}&outputsize=compact&apikey=QQLX1CAPFH8SSV4I`)
@@ -81,12 +84,14 @@ const MyStocks = ({ User }) => {
                         DataValuesH.push(data['Time Series (Daily)'][key]['2. high']);
                         DataValuesL.push(data['Time Series (Daily)'][key]['3. low']);
                         DataValuesC.push(data['Time Series (Daily)'][key]['4. close']);
+                        BuyPrice.push(BPrice);
                     }
                     setDatesO(KeyValuesO);
                     setDataO(DataValuesO);
                     setDataC(DataValuesC);
                     setDataH(DataValuesH);
                     setDataL(DataValuesL);
+                    setBuyPrice(BuyPrice);
                 });
         }
         setDisplay('block');
@@ -116,11 +121,13 @@ const MyStocks = ({ User }) => {
         <>
             <div className="container">
                 <div className="row">
-                    <span className="col-12"><h1 className='PageTitle'>My Stocks</h1></span>
-                    <hr></hr>
+                    <div className="col-12">
+                        <h1 className="PageTitle">My Stocks</h1>
+                        <hr />
+                    </div>
                 </div>
                 <div className="row stocksContent d-flex justify-content-around align-items-center">
-                    <div className=" col-lg-3  col-12   d-flex justify-content-between align-items-center addStocks">
+                    <div className=" col-lg-4  col-12   d-flex justify-content-between align-items-center addStocks">
                         <AddStock User={usrema} onTriger={onTriger} />
                     </div>
                     <div className=" col-lg-5 col-12 stockList">
@@ -130,7 +137,7 @@ const MyStocks = ({ User }) => {
                 <div className="row">
                     <div>
                         <div className='offset-lg-1 col-lg-10 col-12' onDoubleClick={Change} style={{display:`${Display}`}}>
-                        <Chart Dates={DatesO} DataO={DataO} DataC={DataC} DataH={DataH} DataL={DataL} />
+                        <NewChart Dates={DatesO} DataO={DataO} DataC={DataC} DataH={DataH} DataL={DataL} SPrice={buyPrice} />
                         </div>
                     </div>
                 </div>

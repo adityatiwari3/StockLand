@@ -23,15 +23,15 @@ const DisplayStockList = ({ User,Data,TrigerEvent}) => {
     useEffect(() =>{
         
     })
-    const FindData =(CName) =>{
+    const FindData =(CName,BPrice) =>{
       
        
-        TrigerEvent(CName);
+        TrigerEvent(CName,BPrice);
     }
     const CompanyList = Data.map((CompanyData,index)=>{
         return(
             <div>
-                <ViewMyStock CName={CompanyData.stockName} User={User}  ind={index} FindData={FindData}/>
+                <ViewMyStock CName={CompanyData.stockName} BPrice={CompanyData.stockPrice} User={User}  ind={index} FindData={FindData}/>
             </div>
         );
     });
@@ -45,7 +45,7 @@ const DisplayStockList = ({ User,Data,TrigerEvent}) => {
                     <div className=' d-flex  justify-content-between'><u><h4 className='PageSubSubTitle'>Stock Name</h4></u></div>
                     <div className=' d-flex  justify-content-between'><u><h4 className='PageSubSubTitle'>Current Status</h4></u></div>
                 </div>
-                <div>
+                <div className="solScroll">
                     {CompanyList}
                 </div>
             </div>

@@ -8,7 +8,8 @@ import Registration from "./components/Registration";
 import Work from "./components/Work";
 import MyStocks from "./components/MyStocks";
 import Logout from "./components/Logout";
-import Text from "./text";
+import Profile from "./components/Profile"
+import ErrorPage from './components/ErrorPage';
 import {reducer,initialState} from "../src/reduser/useReducer";
 import "./Styles/App.css";
 
@@ -40,8 +41,11 @@ const Render = () =>{
     <Route path="/Logout">
       <Logout/>
     </Route>
-    <Route path="/text">
-      <Text/>
+    <Route path="/Profile">
+      <Profile/>
+    </Route>
+    <Route>
+      <ErrorPage/>
     </Route>
     </Switch>
   ) 

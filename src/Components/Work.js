@@ -79,6 +79,7 @@ const Work = () => {
     };
     return (
         <>
+        
             <div className='container work_con'>
                 <SearchBar triger={TrigerEvent} />
                 <div className='row'>
@@ -87,8 +88,11 @@ const Work = () => {
                     </div>
                 </div>
                 <TopViewed />
+                
             </div>
-            {/* <Footer /> */}
+            <div style={{marginTop: 200}}>
+            <Footer />
+            </div>
         </>
     );
 }

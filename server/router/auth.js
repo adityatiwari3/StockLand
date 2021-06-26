@@ -95,6 +95,7 @@ router.post("/googleLogin", async (req, res) => {
                 })
                 console.log("user login succsessfully");
                 console.log(token);
+                res.clearCookie('G_AUTHUSER_H',{ path: '/'});
                 res.status(200).json(1);
             }
             else {
@@ -149,6 +150,7 @@ router.post("/Feedback", check,async (req, res) => {
 })
 router.get("/Logout", (req, res) => {
     res.clearCookie('jwtoken', { path: '/' });
+    res.clearCookie('G_AUTHUSER_H',{ path: '/'});
     res.status(200).send(req.rootdata);
 })
 router.get("/Work", check, (req, res) => {

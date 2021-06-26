@@ -22,14 +22,14 @@ const AddStock = ({ User,onTriger}) => {
         console.log('trigger event is called')
         onTriger();
         // history.push("/MyStocks")
-        window. location. reload()
+        
     }
     useEffect(()=> {
 
     })
     return (
         <div className="Stocks">
-            <span ><h2 className="PageSubTitle">Add New Stock</h2></span>
+            <h2 className="PageSubTitle">Add New Stock</h2>
             <hr></hr>
             <div id="AddStocks">
                 <form>
@@ -41,7 +41,7 @@ const AddStock = ({ User,onTriger}) => {
                         <label htmlFor="BuyPrice">Buy Price</label>
                         <input className="Input" type="text" id="BuyPrice" onChange={event => setStockPrice(event.target.value)} />
                     </div>
-                    <button className="Addbtn" onClick={sendData}>Add</button>
+                    <button className="btn btn-primary Addbtn" onClick={sendData}>Add</button>
                 </form>
             </div>
         </div>

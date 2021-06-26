@@ -99,7 +99,7 @@ const Login = () => {
                                     <p className="text-center">By signing up you accept our <a href="#" className="text-decoration-none">Terms Of Use</a></p>
                                 </div>
                                 <div className="col-md-12 text-center mt-4">
-                                    <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm" onClick={sendData}>Login</button>
+                                    <button type="submit" className=" btn  mybtn btn-primary " onClick={sendData}>Login</button>
                                 </div>
                                 <div className="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
                                     <div className="border-bottom w-100 ml-5"></div>
@@ -108,33 +108,31 @@ const Login = () => {
                                 </div>
                                 {/* here you add google login */}
                                 <div className="row">
-                                    {/* <GoogleLogin
-                                        clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-                                        buttonText="Login"
-                                        onSuccess={responseGoogle}
-                                        onFailure={responseGoogle}
-                                        cookiePolicy={'single_host_origin'}
-                                    />, */}
+                                    
+                                    <div className="col-12 text-center">
+
                                     <GoogleLogin
                                         clientId="129471130344-60ilg7c9366ndmfpdva16eoie1t4d5m0.apps.googleusercontent.com"
                                         render={renderProps => (
-                                            <button onClick={renderProps.onClick} disabled={renderProps.disabled}>login with google</button>
+                                            <a onClick={renderProps.onClick} disabled={renderProps.disabled} className=" btn btn-lg btn-google">Login with  <i class="fa fa-google"></i>+</a>
                                         )}
                                         buttonText="Login"
                                         onSuccess={responseSuccesGoogle}
                                         onFailure={responseErrorGoogle}
                                         cookiePolicy={'single_host_origin'}
-                                    />,
+                                    />
+                                    </div>
                                 </div>
 
 
-                                <div className="form-group">
+                                <div className="form-group mt-4">
                                     <p className="text-center ">Don't have account? <NavLink to="/Registration" id="signup" className="text-decoration-none">Create an account</NavLink></p>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
+                <div className="row mt-5"></div>
             </div>
 
         </>

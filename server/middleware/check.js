@@ -11,7 +11,14 @@ const check = async (req,res,next) =>{
         let token = req.headers.cookie;
         console.log(token)
         console.log("cheking 2")
-        token = token.substring(8,token.length);
+        if(token[0]=='G')
+        {
+            token = token.substring(24,token.length);
+        }
+        if(token[0]=='j')
+        {
+            token = token.substring(8,token.length);           
+        }
         console.log(token)
       
         const veriyfytoken = jwt.verify(token,process.env.SECRET_KEY);

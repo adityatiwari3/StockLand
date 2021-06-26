@@ -102,7 +102,7 @@ const Registration = () => {
                                     <p className="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
                                 </div> */}
                                 <div className="col-md-12 text-center mt-3">
-                                    <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm" onClick={postdata}>Register</button>
+                                    <button type="submit" className=" btn  mybtn btn-primary tx-tfm" onClick={postdata}>Register</button>
                                 </div>
                                 <div className="col-md-12 ">
                                     <div className="login-or">
@@ -117,6 +117,7 @@ const Registration = () => {
                         </div>
                     </div>
                 </div>
+                <div className="row mt-5"></div>
             </div>
         </>
     );

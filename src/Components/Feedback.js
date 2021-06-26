@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 import img from "../Images/contact.png";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { users } from "../App";
 import "../Styles/Feedback.css";
 function Feedback(props) {
@@ -47,6 +49,11 @@ function Feedback(props) {
     }
     useEffect(() => {
         checking();
+        Aos.init({
+            duration: 900,
+            offset: 100,
+            easing: 'ease-in-out-cubic'
+        });
     }, [])
     const handelInput = (e) => {
         const Name = e.target.name;
@@ -77,20 +84,20 @@ function Feedback(props) {
         <>
             <div className="row mt-5 mb-5">
                 <div className="col-12">
-                    <h1 id="feedback-section">Send Us Your Feedback</h1>
+                    <h1 data-Aos="zoom-in-right" id="feedback-section">Send Us Your Feedback</h1>
                 </div>
                 <div className="col-12 col-lg-7 offset-lg-1">
                     <form method="POST">
                         <div className="row form-group  mt-3">
-                            <label for="mobnum" className="col-12 col-md-3 col-form-label"><h6>Contact No.</h6></label>
-                            <div className="col-4 col-md-2 offset-md-2">
+                            <label data-Aos="fade-up" data-Aos-delay="100" for="mobnum" className="col-12 col-md-3 col-form-label"><h6>Contact No.</h6></label>
+                            <div data-Aos="fade-up" data-Aos-delay="100" className="col-4 col-md-2 offset-md-2">
                                 <input type="text" className="form-control" id="countrycode"
                                     name="CCode"
                                     value={msg.CCode}
                                     onChange={handelInput}
                                     placeholder="c. code" />
                             </div>
-                            <div className="col-8 col-md-5">
+                            <div data-Aos="fade-up" data-Aos-delay="100" className="col-8 col-md-5">
                                 <input type="tel" className="form-control" id="Mobnum"
                                     name="Phone"
                                     value={msg.Phone}
@@ -100,8 +107,8 @@ function Feedback(props) {
                             </div>
                         </div>
                         <div className="from-group row mt-3">
-                            <label for="emailid" className="col-12 col-md-3 col-form-label"><h6>Email</h6></label>
-                            <div className="col-12 col-md-7 offset-md-2">
+                            <label data-Aos="fade-up" data-Aos-delay="200" for="emailid" className="col-12 col-md-3 col-form-label"><h6>Email</h6></label>
+                            <div data-Aos="fade-up" data-Aos-delay="200" className="col-12 col-md-7 offset-md-2">
                                 <input type="email" className="form-control" id="email"
                                     name="Email"
                                     value={msg.Email}
@@ -132,8 +139,8 @@ function Feedback(props) {
                             </div>
                         </div> */}
                         <div className="form-group row mt-3">
-                            <label for="feedback" className="col-md-3 col-form-label"><h6>Your Feedback</h6></label>
-                            <div className="col-md-9">
+                            <label data-Aos="fade-up" data-Aos-delay="300" for="feedback" className="col-md-3 col-form-label"><h6>Your Feedback</h6></label>
+                            <div data-Aos="fade-up" data-Aos-delay="300" className="col-md-9">
                                 <textarea className="form-control" id="feedback" rows="5"
                                     name="Meassage"
                                     value={msg.Meassage}
@@ -142,7 +149,7 @@ function Feedback(props) {
                             </div>
                         </div>
                         <div className="form-group row mt-3">
-                            <div className="offset-md-3 col-md-9">
+                            <div data-Aos="fade-up" data-Aos-delay="400" className="offset-md-3 col-md-9">
                                 <button type="submit" className="btn btn-primary"
                                     onClick={sendData}
                                 >Send Feedback</button>
@@ -151,7 +158,7 @@ function Feedback(props) {
                     </form>
                 </div>
                 <div className="col-12 col-lg-4 mt-5">
-                    <div className="">
+                    <div data-Aos="fade-up" className="">
                         <img src={img} alt="" className="contact_img"/>
                     </div>
                 </div>
