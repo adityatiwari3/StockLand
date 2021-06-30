@@ -7,10 +7,7 @@ const check = async (req,res,next) =>{
     try{
 
       
-        console.log("hiii");
         let token = req.headers.cookie;
-        console.log(token)
-        console.log("cheking 2")
         if(token[0]=='G')
         {
             token = token.substring(24,token.length);
@@ -19,11 +16,8 @@ const check = async (req,res,next) =>{
         {
             token = token.substring(8,token.length);           
         }
-        console.log(token)
       
         const veriyfytoken = jwt.verify(token,process.env.SECRET_KEY);
-        console.log(veriyfytoken)
-        console.log("cheking 3")
 
         const rootdata = await Data.findOne({_id:veriyfytoken._id,"Tokens.token":token});
         

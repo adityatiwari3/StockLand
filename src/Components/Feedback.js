@@ -74,7 +74,7 @@ function Feedback(props) {
         })
         const data =await res.json();
         if(!data){
-            console.log("message not send");
+            alert("message not send");
         }else{
             alert("message send succesfully")
             setMsg({...msg,Meassage:""})

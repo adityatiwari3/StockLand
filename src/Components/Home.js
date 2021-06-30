@@ -5,7 +5,8 @@ import "aos/dist/aos.css";
 import profile from "../Images/profile.png";
 import about from "../Images/about.png";
 import Carosel from './Carosel';
-import CarouselHome from './CarouselHome';
+import Slide1 from './Slide1';
+import Slide2 from "./Slide2"
 import Footer from "./Footer";
 import "../Styles/Home.css";
 
@@ -34,8 +35,13 @@ function Home() {
             <div data-Aos="fade-up" className="text-center mt-5">
                 <h1>WHY CHOOSE US?</h1>
             </div>
-            <div data-Aos="fade-up" className="mt-5 ">
-                <CarouselHome />
+            <div className="d-block" style={{height: 333}}>
+                <div data-Aos="fade-up" className="mt-5 d-block d-sm-none ">
+                    <Slide2 />
+                </div>
+                <div data-Aos="fade-up" className="mt-5 d-none d-sm-block ">
+                    <Slide1 />
+                </div>
             </div>
             <hr data-Aos="fade-up" className="featurette-divider mt-5" />
             <div data-Aos="fade-up" className="text-center mt-5">
@@ -50,10 +56,10 @@ function Home() {
                     <h1>WHO WE ARE ?</h1>
                 </div>
                 <div className="row featurette">
-                    <div  className="col-md-5  order-md-2">
+                    <div className="col-md-5  order-md-2">
                         <img src={about} alt="" data-Aos="zoom-in" className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" />
                     </div>
-                    <div  className="col-md-7">
+                    <div className="col-md-7">
                         <h2 data-Aos="zoom-in" data-Aos-delay="100" className="featurette-heading">Let us give a minute.  <span className="text-muted">It’ll blow your mind.</span></h2>
                         <p data-Aos="zoom-in" data-Aos-delay="200" className="lead">Stock Land is idea of some inovative mindset student from National Institute Of Technology Durgapur, India. The main idea behind this to upgrade the methode of marketing specialy in stock market...</p>
                         <NavLink to="/AboutUs" data-Aos="zoom-in-right" data-Aos-delay="300" className="btn btn-lg btn-primary">Know More</NavLink>
@@ -63,8 +69,8 @@ function Home() {
                 <div data-Aos="fade-up" className="row text-center mt-5">
                     <h1>WHO YOU ARE ?</h1>
                 </div>
-                <div className="row featurette" style={{marginTop: -30}}>
-                    <div  className="col-md-5">
+                <div className="row featurette" style={{ marginTop: -30 }}>
+                    <div className="col-md-5">
                         <img src={profile} alt="" data-Aos="zoom-in" className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" />
                     </div>
                     <div className="col-md-7">

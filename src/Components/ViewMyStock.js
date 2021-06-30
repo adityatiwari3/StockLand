@@ -4,8 +4,6 @@ const ViewMyStock = ({ CName, User, BPrice, ind,FindData}) => {
    
     const DeleteStock = () => {
         const ans = window.confirm("Are you sure you want to delete?");
-        console.log(User);
-        console.log(ind);
         if (ans) {
             fetch(`/${User}/deleteStock/${ind}`,{
                 method: 'POST',
@@ -15,7 +13,7 @@ const ViewMyStock = ({ CName, User, BPrice, ind,FindData}) => {
                 body: JSON.stringify({
                  })
             }).then((res)=> res.text())
-            .then(data =>console.log(data));
+            
         }
         window.location.reload();
     }

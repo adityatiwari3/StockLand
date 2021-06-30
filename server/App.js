@@ -13,7 +13,6 @@ App.use(express.json());
 App.use(require('./router/auth'));
 
 // const middleware = (req,res,next) =>{
-//     console.log('welcome to middleware');
 //     next();
 // }
 

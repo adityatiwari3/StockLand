@@ -33,7 +33,6 @@ router.post("/Register", async (req, res) => {
             const data = new Data({ Name, Email, Phone, UserName, Password, CPassword });
             const result = await data.save()
             if (result) {
-                console.log("register succses")
                 res.status(200).json(1);
             }
         }
@@ -63,7 +62,6 @@ router.post("/Login", async (req, res) => {
                     httpOnly: true
                 })
                 console.log("user login succsessfully");
-                console.log(token);
                 res.status(200).json(1);
             }
         }
@@ -80,9 +78,7 @@ router.post("/googleLogin", async (req, res) => {
 
     try {
 
-        console.log(req.body);
         const tokenId = req.body.token;
-        //console.log(tokenId);
         const response = await client.verifyIdToken({ idToken: tokenId, audience: "129471130344-60ilg7c9366ndmfpdva16eoie1t4d5m0.apps.googleusercontent.com" })
         const { email_verified, name, email } = response.getPayload();
         if (email_verified) {
@@ -94,7 +90,6 @@ router.post("/googleLogin", async (req, res) => {
                     httpOnly: true
                 })
                 console.log("user login succsessfully");
-                console.log(token);
                 res.clearCookie('G_AUTHUSER_H',{ path: '/'});
                 res.status(200).json(1);
             }
@@ -114,7 +109,6 @@ router.post("/googleLogin", async (req, res) => {
                         httpOnly: true
                     })
                     console.log("user login succsessfully");
-                    console.log(token);
                     res.status(200).json(1);
                 }
             }
@@ -135,7 +129,6 @@ router.post("/Feedback", check,async (req, res) => {
         const { CCode, Phone, Email,  Meassage } = req.body;
 
         if (!Email || !Meassage) {
-            console.log("fill all the details");
             return res.json({ error: "fill all the form" });
         }
         const userMsg = await Data.findOne({ _id: req.userId });
@@ -163,12 +156,10 @@ router.get("/Profile", check, (req, res) => {
     res.send(req.rootdata);
 })
 router.get('/stocksData', () => {
-    console.log('You are in stockdata')
 });
 
 router.post("/:User/stocksData", async (req, res) => {
     let Email = req.params.User;
-    //console.log(Email);
     const { stockName, stockPrice } = req.body;
     try {
         let user = await Data.findOne({ Email: Email });
@@ -181,7 +172,6 @@ router.post("/:User/stocksData", async (req, res) => {
             });
             await user.save();
         }
-        //console.log(user);
     }
     catch (err) {
         console.log(err);
@@ -191,7 +181,6 @@ router.post('/:User/deleteStock/:ind',async (req,res) => {
     const Email=req.params.User;
     const ind=req.params.ind;
     let user= await Data.findOne({Email:Email});
-    console.log(user);
     user.MyStocks.splice(ind,1);
 
     await user.save();
@@ -200,8 +189,6 @@ router.get('/:User/stocksList',async (req,res) => {
     const Email=req.params.User;
     let user= await Data.findOne({ Email: Email });
     res.send(user.MyStocks);
-    console.log("hi welcome to stocklist ")
-    console.log(Email);
-    console.log(user);
+   
 })
 module.exports = router;

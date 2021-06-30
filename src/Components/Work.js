@@ -5,6 +5,7 @@ import TopViewed from './TopViewed'
 import { users } from "../App";
 import Footer from './Footer'
 import Chart from './Chart'
+import Search from "./search";
 import '../Styles/Work.css'
 const Work = () => {
 
@@ -34,7 +35,7 @@ const Work = () => {
         }
     }
     useEffect(() => {
-        checking();
+         checking();
     }, [])
 
 
@@ -53,15 +54,12 @@ const Work = () => {
         const DataValuesH=[];
         const DataValuesL=[];
         const CallApi = () => {
-            console.log(Search);
             fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${Search}&outputsize=compact&apikey=QQLX1CAPFH8SSV4I`)
                 .then(response => {
                     return response.json();
                 })
                 .then(data => {
-                    console.log(data);
                     for (const key in data['Time Series (Daily)']) {
-                        console.log(key);
                         KeyValuesO.push(key);
                         DataValuesO.push(data['Time Series (Daily)'][key]['1. open']);
                         DataValuesH.push(data['Time Series (Daily)'][key]['2. high']);
@@ -80,19 +78,21 @@ const Work = () => {
     return (
         <>
         
+            <Search triger={TrigerEvent} />
             <div className='container work_con'>
-                <SearchBar triger={TrigerEvent} />
+                {/* <SearchBar triger={TrigerEvent} /> */}
                 <div className='row'>
                     <div className='offset-lg-1 col-lg-10 col-12'>
                         <Chart Dates={DatesO} DataO={DataO} DataC={DataC} DataH={DataH} DataL={DataL} />
                     </div>
                 </div>
-                <TopViewed />
-                
+                <TopViewed triger={TrigerEvent} />
+                <div className="row mt-5"></div>
+                <div className="row mt-5"></div>
             </div>
-            <div style={{marginTop: 200}}>
+            {/* <div style={{marginTop: 200}}>
+            </div> */}
             <Footer />
-            </div>
         </>
     );
 }

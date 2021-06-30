@@ -1,0 +1,52 @@
+.Page{
+   
+    margin:5px;
+    box-shadow: 0px 0px 10px 10px #ccc;
+    border-radius: 15px;
+    background-color: #E2F2F0;
+    padding:40px;
+  }
+  .edit-btn{
+    
+    background-color: #cacaca;
+    border-radius: 15px;
+    color:black;
+   
+  }
+  .ImageP{
+      padding: 5px;
+      height:250px;
+      border :1px solid black;
+  }
+  .Header{
+    padding:10px;
+  }
+  #Namia{
+    font-family: 'Ubuntu', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
+  }
+  .DataS{
+    font-family: 'Ubuntu', sans-serif;
+    padding: 5px;
+    box-shadow: 0px 0px 2px 2px #ccc;
+    /* border :1px solid black; */
+    background-color: #fff;
+    margin-top:20px;
+  }
+  #ProfileOfUsr{
+    padding-top :50px;
+  }
+  .Data{
+    margin-top:15px;
+    
+  }
+  /* .ex{
+      border:2px solid black;
+  } */
+  .Total{
+    border:2px solid black;
+  }
+  .Overflow{
+    /* color:red; */
+    overflow-x: scroll;
+  }

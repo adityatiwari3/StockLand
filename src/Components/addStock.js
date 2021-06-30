@@ -7,7 +7,6 @@ const AddStock = ({ User,onTriger}) => {
     // const history = useHistory();
     const sendData = (e) => {
         e.preventDefault();
-        console.log('you are sending data')
 
         fetch(`${User}/stocksData`, {
             method: "POST",
@@ -18,8 +17,6 @@ const AddStock = ({ User,onTriger}) => {
                 stockName, stockPrice
             })
         }).then(response => response.json())
-           .then(data => console.log(data))
-        console.log('trigger event is called')
         onTriger();
         // history.push("/MyStocks")
         

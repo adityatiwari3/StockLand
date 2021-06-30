@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import image from "../Images/logo_brand.png";
-import img from "../Images/increase_logo.png";
+import img from "../Images/avtar.png";
 import { users } from "../App";
 import "../Styles/Navbar.css";
 function Navbar() {
@@ -41,8 +41,10 @@ function Navbar() {
           </li>
           <li className="nav-item">
             <div className="dropdown  mt-2">
-              <a className="dropdown-toggle" id="dropdownMenuOffse" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-                <img src={img} alt="" className="rounded-circle" loading="lazy" style={{ height: 29 }} />
+              <a className="" id="dropdownMenuOffse" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                <div className="">
+                  <img src={img} alt="avtar" className="rounded-circle avtar " loading="lazy" />
+                </div>
               </a>
               <div className="dropdown-menu text-center dropdown-menu-right" aria-labelledby="dropdownMenuOffse">
                 <NavLink className="nav-link" data-toggle="modal" data-target="#" to="/Profile"><span className="fa fa-user fa-lg">  </span>  Profile</NavLink>
@@ -52,7 +54,7 @@ function Navbar() {
               </div>
             </div>
           </li>
-          
+
         </>
       )
     }

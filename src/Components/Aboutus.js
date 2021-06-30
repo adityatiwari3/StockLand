@@ -21,7 +21,6 @@ function Aboutus() {
     const [Phone, setPhone] = useState();
     const checking = async () => {
         try {
-            // console.log("cheking 1")
             const res = await fetch('/About', {
                 method: "GET",
                 headers: {
@@ -31,30 +30,20 @@ function Aboutus() {
                 credentials: "include"
             })
 
-            // console.log("cheking 2")
-            // console.log(res.status)
-
-            // const data = 0;
             const data = await res.json();
             setEmail(data.Email)
             setPhone(data.Phone)
-            // console.log(data);
-            // console.log("cheking 3")
+           
             if (!res.status === 200) {
-                // console.log("cheking 4")
                 // history.push("/Login");
                 throw new Error(res.error);
             }
-            // console.log("cheking 5")
             dispatch({ type: "USER", payload: true })
         } catch (err) {
-            // console.log(err);
             dispatch({ type: "USER", payload: false })
             //history.push("/Login");
-            // console.log("cheking 6")
         }
     }
-    //console.log(data)
 
     useEffect(() => {
         checking();
